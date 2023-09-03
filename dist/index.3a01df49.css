@@ -1,0 +1,121 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap";
+*, :after, :before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  background: #8e9eab;
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+  height: 100vh;
+  font-family: Roboto, Times, serif;
+}
+
+.container {
+  background: #f8f9fa;
+  border: 1px solid #777;
+  border-radius: 5px;
+  flex-direction: column;
+  place-content: stretch space-between;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.init, .btnControl {
+  background-color: #e7f5ff;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  display: flex;
+}
+
+.init {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  align-items: center;
+  padding: 10px;
+}
+
+.btnControl {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.init label {
+  margin-right: 10px;
+}
+
+.initValue {
+  border: 0;
+  border-radius: 5px;
+  height: 25px;
+  margin-right: 10px;
+  box-shadow: 0 0 15px 4px #0000000f;
+}
+
+.init button {
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.init button:hover {
+  cursor: pointer;
+}
+
+.number {
+  justify-content: center;
+  display: flex;
+}
+
+.number p {
+  font-size: 96px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.btnControl {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.btn {
+  color: inherit;
+  background-color: #dee2e6;
+  border-radius: 5px;
+  padding: 7px 15px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #adb5bd;
+  transition: all .3s;
+}
+
+.topalert {
+  background: #e9ecef;
+  border: 1px solid #777;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 50px;
+  display: flex;
+  position: absolute;
+  top: 50px;
+  right: 0;
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */

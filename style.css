@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* , *::after , *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page {
+    height: 100vh;
+    font-family: "Roboto", Times, serif;
+    background: #8e9eab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+    background: #f8f9fa;
+    width: 50%;
+    height: 50%;
+    /* padding: 25px; */
+    border: 1px solid #777;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap-reverse; */
+    justify-content: space-between;
+    align-content: stretch;
+}
+
+.init , .btnControl {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #e7f5ff;
+}
+
+.init {
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    align-items: center;
+}
+
+.btnControl {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.init label {
+    margin-right: 10px;
+}
+
+.initValue {
+    height: 25px;
+    /* padding:10px; */
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.init button {
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+}
+
+.init button:hover {
+    cursor: pointer;
+}
+
+.number {
+    display: flex;
+    justify-content: center;
+}
+
+.number p {
+    font-size: 96px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.btnControl {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn {
+    color: inherit;
+    text-decoration: none;
+    /* border: 1px solid #adb5bd; */
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 5px;
+    background-color: #dee2e6;
+}
+
+.btn:hover {
+    background-color: #adb5bd;
+    transition: 0.3s;
+}
+
+.topalert {
+    width: 220px;
+    background: #e9ecef;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #777;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

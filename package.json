@@ -1,0 +1,13 @@
+{
+  "name": "incdec",
+  "version": "1.0.0",
+  "description": "A simple App for increasing and decreasing a number",
+  "scripts": {
+    
+  },
+  "author": "Iman moodi",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
