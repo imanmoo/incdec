@@ -4,7 +4,7 @@ its a simple project that would increase or decrease a number.
 
 ## TO DOs
 
-1. ADD Increase Functionality
+1. ADD Increase Functionality //ADDED
 2. ADD Decrease Functionality
 3. ADD Reset Btn
 4. MAKE topAlert more stylish
