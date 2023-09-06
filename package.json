@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A simple App for increasing and decreasing a number",
   "scripts": {
-    
+    "build": "npx parcel index.html"
   },
   "author": "Iman moodi",
   "license": "ISC",

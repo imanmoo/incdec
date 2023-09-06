@@ -1,7 +1,7 @@
 const initValInput = document.querySelector('.initValue');
 const initValSetBtn = document.querySelector('.setValBtn');
 const body = document.querySelector('body');
-const numberPlaceHolder = document.querySelector('.numberPlaceHolder');
+const addBtn = document.querySelector('.btninc');
 
 
 export const addHandlerSet = function(handler) {
@@ -11,10 +11,6 @@ export const addHandlerSet = function(handler) {
         handler(userInitVal);
     })
 };
-
-export const setNumberPlaceHolder = function(userVal) {
-    numberPlaceHolder.innerHTML = userVal;
-}
 
 export const triggerSetAlert = function(userVal) {
     const markup = `
@@ -31,6 +27,14 @@ export const triggerSetAlert = function(userVal) {
     , 2000)
 };
 
+// Increment BTN
+
+export const addHandlerAdd = function(handler) {
+    addBtn.addEventListener('click' , function(e) {
+        e.preventDefault();
+        handler();
+    });
+};
 
 
 

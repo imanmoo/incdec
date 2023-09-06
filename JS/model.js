@@ -14,11 +14,11 @@ export const setVal = function (val) {
 };
 
 export const addVal = function() {
-    state.currentVal = state.currentVal++;
+    state.currentVal = ++state.currentVal;
 };
 
 export const minVal = function() {
-    state.currentVal = state.currentVal--;
+    state.currentVal = --state.currentVal;
 };
 
 

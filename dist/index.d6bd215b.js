@@ -576,18 +576,25 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"aR0YZ":[function(require,module,exports) {
 var _modelJs = require("./model.js");
 var _viewJs = require("./view.js");
+var _helperJs = require("./helper.js");
 // console.log(model);
 const controlSet = function(input) {
     _modelJs.setVal(input);
     _viewJs.triggerSetAlert(input);
-    _viewJs.setNumberPlaceHolder(input);
+    _helperJs.setNumberPlaceHolder(input);
+};
+const controlAdd = function() {
+    _modelJs.addVal();
+    // console.log(model.state.currentVal);
+    _helperJs.setNumberPlaceHolder(_modelJs.state.currentVal);
 };
 const init = function() {
     _viewJs.addHandlerSet(controlSet);
+    _viewJs.addHandlerAdd(controlAdd);
 };
 init();
 
-},{"./model.js":"dza7W","./view.js":"8104u"}],"dza7W":[function(require,module,exports) {
+},{"./model.js":"dza7W","./view.js":"8104u","./helper.js":"9NoPR"}],"dza7W":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
@@ -606,10 +613,10 @@ const setVal = function(val) {
     console.log(state.currentVal);
 };
 const addVal = function() {
-    state.currentVal = state.currentVal++;
+    state.currentVal = ++state.currentVal;
 };
 const minVal = function() {
-    state.currentVal = state.currentVal--;
+    state.currentVal = --state.currentVal;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
@@ -646,21 +653,18 @@ exports.export = function(dest, destName, get) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addHandlerSet", ()=>addHandlerSet);
-parcelHelpers.export(exports, "setNumberPlaceHolder", ()=>setNumberPlaceHolder);
 parcelHelpers.export(exports, "triggerSetAlert", ()=>triggerSetAlert);
+parcelHelpers.export(exports, "addHandlerAdd", ()=>addHandlerAdd);
 const initValInput = document.querySelector(".initValue");
 const initValSetBtn = document.querySelector(".setValBtn");
 const body = document.querySelector("body");
-const numberPlaceHolder = document.querySelector(".numberPlaceHolder");
+const addBtn = document.querySelector(".btninc");
 const addHandlerSet = function(handler) {
     initValSetBtn.addEventListener("click", function(e) {
         e.preventDefault();
         const userInitVal = +initValInput.value;
         handler(userInitVal);
     });
-};
-const setNumberPlaceHolder = function(userVal) {
-    numberPlaceHolder.innerHTML = userVal;
 };
 const triggerSetAlert = function(userVal) {
     const markup = `
@@ -673,6 +677,22 @@ const triggerSetAlert = function(userVal) {
     setTimeout(function() {
         topAlert.style.display = "none";
     }, 2000);
+};
+const addHandlerAdd = function(handler) {
+    addBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        handler();
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9NoPR":[function(require,module,exports) {
+// VIEWS HELPER
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "setNumberPlaceHolder", ()=>setNumberPlaceHolder);
+const numberPlaceHolder = document.querySelector(".numberPlaceHolder");
+const setNumberPlaceHolder = function(userVal) {
+    numberPlaceHolder.innerHTML = userVal;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["2DpY7","aR0YZ"], "aR0YZ", "parcelRequire889a")
