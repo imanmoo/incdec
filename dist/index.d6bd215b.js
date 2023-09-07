@@ -588,9 +588,19 @@ const controlAdd = function() {
     // console.log(model.state.currentVal);
     _helperJs.setNumberPlaceHolder(_modelJs.state.currentVal);
 };
+const controlMin = function() {
+    _modelJs.minVal();
+    _helperJs.setNumberPlaceHolder(_modelJs.state.currentVal);
+};
+const controlReset = function() {
+    _modelJs.reset();
+    _helperJs.setNumberPlaceHolder(_modelJs.state.currentVal);
+};
 const init = function() {
     _viewJs.addHandlerSet(controlSet);
     _viewJs.addHandlerAdd(controlAdd);
+    _viewJs.addHandlerMin(controlMin);
+    _viewJs.addHandlerReset(controlReset);
 };
 init();
 
@@ -601,6 +611,7 @@ parcelHelpers.export(exports, "state", ()=>state);
 parcelHelpers.export(exports, "setVal", ()=>setVal);
 parcelHelpers.export(exports, "addVal", ()=>addVal);
 parcelHelpers.export(exports, "minVal", ()=>minVal);
+parcelHelpers.export(exports, "reset", ()=>reset);
 const state = {
     initVal: 0
 };
@@ -617,6 +628,9 @@ const addVal = function() {
 };
 const minVal = function() {
     state.currentVal = --state.currentVal;
+};
+const reset = function() {
+    state.currentVal = state.initVal;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
@@ -655,15 +669,20 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addHandlerSet", ()=>addHandlerSet);
 parcelHelpers.export(exports, "triggerSetAlert", ()=>triggerSetAlert);
 parcelHelpers.export(exports, "addHandlerAdd", ()=>addHandlerAdd);
+parcelHelpers.export(exports, "addHandlerMin", ()=>addHandlerMin);
+parcelHelpers.export(exports, "addHandlerReset", ()=>addHandlerReset);
 const initValInput = document.querySelector(".initValue");
 const initValSetBtn = document.querySelector(".setValBtn");
 const body = document.querySelector("body");
 const addBtn = document.querySelector(".btninc");
+const minBtn = document.querySelector(".btndec");
+const resetBtn = document.querySelector(".btnreset");
 const addHandlerSet = function(handler) {
     initValSetBtn.addEventListener("click", function(e) {
         e.preventDefault();
         const userInitVal = +initValInput.value;
         handler(userInitVal);
+        initValInput.value = "";
     });
 };
 const triggerSetAlert = function(userVal) {
@@ -680,6 +699,18 @@ const triggerSetAlert = function(userVal) {
 };
 const addHandlerAdd = function(handler) {
     addBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        handler();
+    });
+};
+const addHandlerMin = function(handler) {
+    minBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        handler();
+    });
+};
+const addHandlerReset = function(handler) {
+    resetBtn.addEventListener("click", function(e) {
         e.preventDefault();
         handler();
     });

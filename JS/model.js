@@ -21,6 +21,10 @@ export const minVal = function() {
     state.currentVal = --state.currentVal;
 };
 
+export const reset = function() {
+    state.currentVal = state.initVal;
+}
+
 
 
 
