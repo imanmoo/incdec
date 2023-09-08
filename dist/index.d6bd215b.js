@@ -574,13 +574,15 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"aR0YZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _modelJs = require("./model.js");
-var _viewJs = require("./view.js");
+var _viewObjJs = require("./viewObj.js");
+var _viewObjJsDefault = parcelHelpers.interopDefault(_viewObjJs);
 var _helperJs = require("./helper.js");
-// console.log(model);
+console.log((0, _viewObjJsDefault.default));
 const controlSet = function(input) {
     _modelJs.setVal(input);
-    _viewJs.triggerSetAlert(input);
+    (0, _viewObjJsDefault.default).triggerSetAlert(input);
     _helperJs.setNumberPlaceHolder(input);
 };
 const controlAdd = function() {
@@ -597,14 +599,14 @@ const controlReset = function() {
     _helperJs.setNumberPlaceHolder(_modelJs.state.currentVal);
 };
 const init = function() {
-    _viewJs.addHandlerSet(controlSet);
-    _viewJs.addHandlerAdd(controlAdd);
-    _viewJs.addHandlerMin(controlMin);
-    _viewJs.addHandlerReset(controlReset);
+    (0, _viewObjJsDefault.default).addHandlerSet(controlSet);
+    (0, _viewObjJsDefault.default).addHandlerAdd(controlAdd);
+    (0, _viewObjJsDefault.default).addHandlerMin(controlMin);
+    (0, _viewObjJsDefault.default).addHandlerReset(controlReset);
 };
 init();
 
-},{"./model.js":"dza7W","./view.js":"8104u","./helper.js":"9NoPR"}],"dza7W":[function(require,module,exports) {
+},{"./model.js":"dza7W","./helper.js":"9NoPR","./viewObj.js":"gDyOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dza7W":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
@@ -663,60 +665,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"8104u":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addHandlerSet", ()=>addHandlerSet);
-parcelHelpers.export(exports, "triggerSetAlert", ()=>triggerSetAlert);
-parcelHelpers.export(exports, "addHandlerAdd", ()=>addHandlerAdd);
-parcelHelpers.export(exports, "addHandlerMin", ()=>addHandlerMin);
-parcelHelpers.export(exports, "addHandlerReset", ()=>addHandlerReset);
-const initValInput = document.querySelector(".initValue");
-const initValSetBtn = document.querySelector(".setValBtn");
-const body = document.querySelector("body");
-const addBtn = document.querySelector(".btninc");
-const minBtn = document.querySelector(".btndec");
-const resetBtn = document.querySelector(".btnreset");
-const addHandlerSet = function(handler) {
-    initValSetBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        const userInitVal = +initValInput.value;
-        handler(userInitVal);
-        initValInput.value = "";
-    });
-};
-const triggerSetAlert = function(userVal) {
-    const markup = `
-    <div class="topalert">
-        <p>You set the init number to ${userVal}</p>
-    </div>
-    `;
-    body.insertAdjacentHTML("afterend", markup);
-    const topAlert = document.querySelector(".topalert");
-    setTimeout(function() {
-        topAlert.style.display = "none";
-    }, 2000);
-};
-const addHandlerAdd = function(handler) {
-    addBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        handler();
-    });
-};
-const addHandlerMin = function(handler) {
-    minBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        handler();
-    });
-};
-const addHandlerReset = function(handler) {
-    resetBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        handler();
-    });
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9NoPR":[function(require,module,exports) {
+},{}],"9NoPR":[function(require,module,exports) {
 // VIEWS HELPER
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -725,6 +674,60 @@ const numberPlaceHolder = document.querySelector(".numberPlaceHolder");
 const setNumberPlaceHolder = function(userVal) {
     numberPlaceHolder.innerHTML = userVal;
 };
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gDyOp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class View {
+    initValInput = document.querySelector(".initValue");
+    initValSetBtn = document.querySelector(".setValBtn");
+    body = document.querySelector("body");
+    addBtn = document.querySelector(".btninc");
+    minBtn = document.querySelector(".btndec");
+    resetBtn = document.querySelector(".btnreset");
+    addHandlerSet(handler) {
+        this.initValSetBtn.addEventListener("click", (e)=>{
+            e.preventDefault();
+            const userInitVal = +this.initValInput.value;
+            handler(userInitVal);
+            this.initValInput.value = "";
+        });
+    }
+    triggerSetAlert(userVal) {
+        const markup = `
+        <div class="topalert">
+            <p>You set the init number to ${userVal}</p>
+        </div>
+        `;
+        this.body.insertAdjacentHTML("afterend", markup);
+        const topAlert = document.querySelector(".topalert");
+        setTimeout(function() {
+            topAlert.style.display = "none";
+        }, 2000);
+    }
+    addHandlerAdd(handler) {
+        this.addBtn.addEventListener("click", (e)=>{
+            e.preventDefault();
+            handler();
+        });
+    }
+    addHandlerMin(handler) {
+        this.minBtn.addEventListener("click", (e)=>{
+            e.preventDefault();
+            handler();
+        });
+    }
+    addHandlerReset(handler) {
+        this.resetBtn.addEventListener("click", (e)=>{
+            e.preventDefault();
+            handler();
+        });
+    }
+    print(text) {
+        console.log(text);
+    }
+}
+exports.default = new View();
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["2DpY7","aR0YZ"], "aR0YZ", "parcelRequire889a")
 

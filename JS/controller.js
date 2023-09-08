@@ -1,12 +1,12 @@
 import * as model from './model.js';
-import * as view from './view.js';
+import newView from './viewObj.js';
 import * as helper from './helper.js';
 
-// console.log(model);
+console.log(newView)
 
 const controlSet = function(input) {
     model.setVal(input);
-    view.triggerSetAlert(input);
+    newView.triggerSetAlert(input);
     helper.setNumberPlaceHolder(input);
 };
 
@@ -27,10 +27,10 @@ const controlReset = function() {
 };
 
 const init = function() {
-    view.addHandlerSet(controlSet);
-    view.addHandlerAdd(controlAdd);
-    view.addHandlerMin(controlMin);
-    view.addHandlerReset(controlReset);
+    newView.addHandlerSet(controlSet);
+    newView.addHandlerAdd(controlAdd);
+    newView.addHandlerMin(controlMin);
+    newView.addHandlerReset(controlReset);
 };
 
 init();
